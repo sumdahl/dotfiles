@@ -6,3 +6,4 @@ This repo contains dotfiles configs of
 - dunst
 - sxhkd
 - xinitrc
+- picom
