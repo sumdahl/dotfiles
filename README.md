@@ -9,3 +9,5 @@ This repo contains dotfiles configs of
 - picom
 - mpd
 - ncmpcpp
+- rofi 
+- catppuccin themes
