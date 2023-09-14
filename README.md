@@ -7,3 +7,5 @@ This repo contains dotfiles configs of
 - sxhkd
 - xinitrc
 - picom
+- mpd
+- ncmpcpp
