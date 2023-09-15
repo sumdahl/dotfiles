@@ -11,3 +11,4 @@ This repo contains dotfiles configs of
 - ncmpcpp
 - rofi 
 - catppuccin themes
+- alacritty with themes
