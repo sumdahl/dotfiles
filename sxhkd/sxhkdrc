@@ -1,0 +1,85 @@
+#+title: sxhkd config
+#+date: 04/28/2023
+#author: https://github.com/sumdahl
+##############################
+#  ALT + KEYS
+# Usefull apps
+alt + {b,f,d,e,n,g,q,t,p,m}
+    {firefox, \
+    google-chrome-stable, \
+    discord, \
+    thunar, \
+    nitrogen, \
+    thunderbird,\
+    qbittorrent,\
+    telegram-desktop, \
+    pavucontrol, \
+    spotify}
+
+alt + shift + v
+  st nvim
+
+super + alt + f
+  st ranger
+#suckless terminal
+super + Return
+    st
+# Rofi
+super + d
+    rofi -show drun
+
+# Xkill
+super + Escape
+  bash ~/.config/qtile/scripts/sxhkd.sh
+
+# Flameshot (screenshot tool)
+Print
+    flameshot gui
+
+##############################
+# SUPER + SHIFT KEYS
+##############################
+
+# dmenu
+super + shift + m
+    dmenu_run -i -nb '#2e3440' -nf '#81a1c1' -sb '#81a1c1' -sf '#2e3440' -fn 'SourceCodeProBoldFont:pixelsize=15'
+
+# Reload sxhkd:
+super + shift + Escape
+    pkill -USR1 -x sxhkd
+
+#################################################################
+# CONTROL + SHIFT KEYS
+#################################################################
+
+#power off, reboot , suspend
+ctrl + super + alt + {p,r,s,l,k}
+	{systemctl poweroff, systemctl reboot, systemctl suspend, betterlockscreen -l,xkill}
+
+#################################################################
+#     MULTIMEDIA KEYS
+#################################################################
+
+#Raises volume
+XF86AudioRaiseVolume
+  bash ~/.config/qtile/scripts/volume up
+
+#Lowers volume
+XF86AudioLowerVolume
+  bash ~/.config/qtile/scripts/volume down
+
+#Mute
+XF86AudioMute
+  bash ~/.config/qtile/scripts/volume mute
+
+#####################################################
+# Music Control
+XF86Audio{Next,Prev,Play,Stop}
+	bash ~/.config/qtile/scripts/MediaControl {--next,--previous,--toggle,--stop}
+
+#Brightness Control
+XF86MonBrightnessUp
+  bash ~/.config/qtile/scripts/brightness up
+
+XF86MonBrightnessDown
+  bash ~/.config/qtile/scripts/brightness down
