@@ -1,0 +1,11 @@
+#!/bin/bash
+
+THEME_DIR="$HOME/.config/alacritty/themes"
+THEME_FILE="$THEME_DIR/$1"
+
+if [ -f "$THEME_FILE" ]; then
+    cp "$THEME_FILE" "$HOME/.config/alacritty/alacritty.yml"
+    echo "Switched to $1 theme"
+else
+    echo "Theme not found: $1"
+fi
