@@ -2,6 +2,7 @@ import os
 import re
 import socket
 import subprocess
+import owm_api
 from typing import List  # noqa: F401
 from libqtile import layout, bar, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
@@ -17,6 +18,9 @@ mod1 = "alt"
 mod2 = "control"
 home = os.path.expanduser('~')
 
+#owm api key
+owm_api_key = owm_api.owm_api_key
+city_id = owm_api.city_id
 
 @lazy.function
 def window_to_prev_group(qtile):
@@ -231,12 +235,12 @@ def init_widgets_list():
                         foreground = colors[0],
                         background = colors[1],
                         ),
-               widget.Sep(
-                        foreground = colors[1],
-                        background = colors[1],
-                        padding = 10,
-                        linewidth = 1
-                        ),
+               # widget.Sep(
+               #          foreground = colors[1],
+               #          background = colors[1],
+               #          padding = 10,
+               #          linewidth = 1
+               #          ),
               widget.Pomodoro(
                         background = colors[1],
                         foreground = colors[1],
@@ -385,6 +389,28 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[1]
                         ),
+               widget.OpenWeather(
+                        app_key = owm_api_key,
+                        cityid = city_id,
+                        format = '{icon} {main_temp}°C',
+                        metric = True,
+                        font = "JetBrainsMono Nerd Font Bold",
+                        foreground = colors[1],
+                        decorations = [
+                            RectDecoration (
+                                colour = colors[3],
+                                padding_y = 5,
+                                radius = 2,
+                                filled = True
+                            ),
+                        ],
+                        ),
+                   widget.Sep(
+                            linewidth = 1,
+                            padding = 10,
+                            foreground = colors[2],
+                            background = colors[1]
+                            ),
                 widget.UPowerWidget(
                         border_colour = '#d8dee9',
                         border_critical_colour = '#bf616a'
