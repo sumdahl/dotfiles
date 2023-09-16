@@ -12,4 +12,3 @@ This repo contains dotfiles configs of
 - rofi 
 - catppuccin themes
 - alacritty with themes
-- suckless terminal
