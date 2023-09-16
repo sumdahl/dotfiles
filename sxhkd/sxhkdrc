@@ -16,13 +16,12 @@ alt + {b,f,d,e,n,g,q,t,p,m}
     pavucontrol, \
     spotify}
 
-#neovim shortcut
 alt + shift + v
   st nvim
 
-#ranger shortcut
-super + alt + f
+alt + shift + f
   st ranger
+
 #suckless terminal
 super + Return
     st
@@ -38,6 +37,9 @@ super + Escape
 Print
     flameshot gui
 
+#alacritty theme selector
+ctrl + alt + t
+    bash ~/.config/alacritty/alacritty-theme-selector
 ##############################
 # SUPER + SHIFT KEYS
 ##############################
@@ -85,3 +87,5 @@ XF86MonBrightnessUp
 
 XF86MonBrightnessDown
   bash ~/.config/qtile/scripts/brightness down
+
+
