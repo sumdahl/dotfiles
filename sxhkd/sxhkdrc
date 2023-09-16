@@ -46,7 +46,7 @@ ctrl + alt + t
 
 # dmenu
 super + shift + m
-    dmenu_run -i -nb '#2e3440' -nf '#81a1c1' -sb '#81a1c1' -sf '#2e3440' -fn 'SourceCodeProBoldFont:pixelsize=15'
+    dmenu_run -i -nb '#2e3440' -nf '#81a1c1' -sb '#81a1c1' -sf '#2e3440' -fn 'JetBrainsMono Nerd Font:pixelsize=14'
 
 # Reload sxhkd:
 super + shift + Escape
