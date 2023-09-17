@@ -1,0 +1,81 @@
+# Set the default zoom level (adjust to your preference)
+set zoom 100
+
+# Set the default page layout (adjust to your preference)
+set page-fitting 'original-size'
+
+# Set the default background color to white
+set recolor-lightcolor "#FFFFFF"
+
+# Set the default foreground (text) color to black
+set recolor-darkcolor "#000000"
+
+# Enable continuous scrolling
+set scroll-continous true
+
+# Use a custom font (adjust to your preferred font)
+set font "JetBrainsMono Nerd 9"
+
+# Keybindings
+map <C-h> scroll left
+map <C-j> scroll down
+map <C-k> scroll up
+map <C-l> scroll right
+map <C-u> scroll half-up
+map <C-d> scroll half-down
+map <C-b> scroll up
+map <C-f> scroll down
+map gg goto-first
+map G goto-last
+map <C-g> goto-page
+map <C-w> close
+map <C-r> reload
+map <C-s> toggle-scrollbar
+map <C-v> toggle-recolor
+
+# Open files in tabs
+set use-tabs true
+
+# Set the default tab-width
+set tab-width 4
+
+# Customize the status bar (optional)
+set statusbar-fg "#FFFFFF"
+set statusbar-bg "#333333"
+set statusbar-bg-normal "#333333"
+set statusbar-fg-normal "#FFFFFF"
+
+# Customize the title (optional)
+set window-title "[Zathura] %b - Page %p"
+
+# Set the default search direction (adjust to your preference)
+set search-directions 'hjkl'
+
+# Set the default search behavior (adjust to your preference)
+set search-case-sensitive false
+
+# Enable plugins (adjust based on installed plugins)
+# Uncomment these lines as needed:
+# set plugin-path '~/.config/zathura/plugins/'
+# pdf-mupdf
+# pdf-poppler
+# djvu
+# postscript
+# cb
+
+# Automatically reload documents when changed on disk
+set synctex-editor-command "gvim --remote-silent +%{line} %{input}"
+
+# Enable inverse search with your LaTeX editor (adjust based on your LaTeX editor)
+# Uncomment and customize these lines as needed:
+# set synctex true
+# set synctex-editor-command "your-editor-name +%{line} %{input}"
+
+# Enable and customize highlighting of search results
+# Uncomment and customize these lines as needed:
+# set highlight-search true
+# set highlight-search-color "#FF0000"
+# set highlight-search-fg "#FFFFFF"
+
+# Uncomment the following line to disable notifications
+# set dbus-service false
