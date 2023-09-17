@@ -41,7 +41,6 @@ keys = [
     Key([mod], "m", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
 
-
 # SUPER + SHIFT KEYS
 
     Key([mod, "shift"], "r", lazy.restart()),
@@ -49,6 +48,16 @@ keys = [
 
 # QTILE LAYOUT KEYS
     Key([mod], "space", lazy.next_layout()),
+
+#MOVE FOCUS TO NEXT/PREVIOUS SCREEN
+    Key([mod], "period", lazy.next_screen()),
+    Key([mod], "comma", lazy.prev_screen()),
+
+# MOVE WINDOWS BETWEEN SCREENS
+    Key([mod, "shift"], "period", lazy.window.toscreen(1),
+        lazy.next_screen()),
+    Key([mod, "shift"], "comma", lazy.window.toscreen(0),
+        lazy.prev_screen()),
 
 # CHANGE FOCUS
     Key([mod], "k", lazy.layout.up()),
@@ -120,7 +129,7 @@ groups = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
 
 group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
-#group_labels = ["web", "dev", "sys", "doc", "file", "vbox", "chat", "music", "vid", "gfx",]
+# group_labels = ["web", "dev", "sys", "doc", "file", "vbox", "chat", "music", "vid", "gfx",]
 
 group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
 
@@ -150,7 +159,7 @@ for i in groups:
 def init_layout_theme():
     return {"margin":8,
             "border_width":2,
-            "border_focus": "#81A1C1",
+            "border_focus": "#03fcce",
             "border_normal": "#2E3440"
             }
 
@@ -507,7 +516,6 @@ auto_fullscreen = True
 focus_on_window_activation = "focus" # or smart
 
 wmname = "LG3D"
-
 
 
 
