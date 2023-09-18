@@ -10,6 +10,7 @@ This repo contains dotfiles configs of
 - mpd
 - ncmpcpp
 - rofi 
+- ranger
 - catppuccin themes
 - alacritty with themes
 - zathura(document viewer)
