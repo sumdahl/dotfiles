@@ -3,6 +3,8 @@
 This repo contains dotfiles configs of
 
 - qtile
+- dwm with fully patched
+- slstatus also fully patched with weather
 - dunst
 - sxhkd
 - xinitrc
