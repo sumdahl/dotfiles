@@ -1,0 +1,133 @@
+static const char *tags[] = {"", "", "3", "", "5", "", "", "8", "9"};
+
+/* tagging */
+/*
+ 1= terminal
+ 2= browser
+ 3= emails
+ 4= messenging
+ 5= music
+ 6= discord
+ */
+
+static const Rule rules[] = {
+    /* xprop(1):
+     *	WM_CLASS(STRING) = instance, class
+     *	WM_NAME(STRING) = title
+     */
+    /* class      instance    title       tags mask     isfloating   monitor */
+    // {"Gimp",      NULL,       NULL,           0,        0,           -1},
+    // {"neovide",   NULL,       NULL,       1 <<2  ,      0,           -1 },
+    {"LibreWolf",    NULL,       NULL,       1 <<1 ,       0,           -1},
+    {"Signal",       NULL,       NULL,       1 <<3  ,      0,           -1 },
+    {"discord",      NULL,       NULL,       1 <<5  ,      0,           -1 },
+    {"thunderbird",  NULL,       NULL,       1 <<6  ,      0,           -1 },
+
+    /* class            instance    title       tags mask     isfloating   monitor */
+    {"Nitrogen",        NULL,       NULL,       0,                1,        -1},
+    {"Gscreenshot",     NULL,       NULL,       0,                1,        -1},
+    {"TelegramDesktop", NULL,       NULL,       1 << 3,           0,        -1},
+};
+
+#define MODKEY Mod4Mask
+#define altkey Mod1Mask
+#define space 0x20
+#define printsc 0xff61
+#define brightup 0x1008FF02
+// #define altkey Mod1Mask
+#define TAGKEYS(KEY, TAG)                                                      \
+      {MODKEY, KEY, view, {.ui = 1 << TAG}},                                       \
+      {MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}},               \
+      {MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},                        \
+      {MODKEY | ControlMask | ShiftMask, KEY, toggletag, {.ui = 1 << TAG}},
+
+//custom keybindings
+    {altkey,        space,        spawn, SHCMD("via ")}, //to use via
+    {0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("~/.local/bin/volumenotifier up")},
+    {0, XF86XK_AudioLowerVolume,  spawn, SHCMD("~/.local/bin/volumenotifier down")},
+    {0, XF86XK_AudioMute,         spawn, SHCMD("~/.local/bin/volumenotifier mute")},
+    {0, XF86XK_MonBrightnessDown, spawn, SHCMD("brillo -q -U 5")},
+    {0, XF86XK_RFKill,            spawn, SHCMD("rfkill toggle all")},
+    {0, brightup,                 spawn, SHCMD("brillo -q -A 5")},
+    {0, XF86XK_AudioPlay,         spawn, SHCMD("mpc toggle")},
+    {0, XF86XK_AudioPrev,         spawn, SHCMD("mpc prev")},
+    {0, XF86XK_AudioNext,         spawn, SHCMD("mpc next")},
+    {0, printsc,                  spawn, SHCMD("gscreenshot")}, //to take screenshot
+    {MODKEY | ShiftMask, XK_p, spawn, SHCMD("~/.scripts/power_menu")},
+
+//to control brightness
+    {altkey, 0xff52, spawn, SHCMD("~/.scripts/bright_notif up")},
+    {altkey, 0xff54, spawn, SHCMD("~/.scripts/bright_notif down")},
+
+//These were replaced by scripts to support dunst
+ // {0, XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer --increase 4")},
+ // {0, XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer --decrease 4")},
+ // {altkey, XK_p, spawn, SHCMD("firefox --private-window --new-tab")},
+ // {altkey, 0xff52, spawn, SHCMD("brillo -q -A 5")},
+ // {altkey, 0xff54, spawn, SHCMD("brillo -q -U 5")},
+
+//custom keybindings to Launch applications/programs
+    {MODKEY, XK_n,   spawn, SHCMD("nemo")},
+    {altkey, XK_f,   spawn, SHCMD("librewolf")},
+    {altkey, XK_m,   spawn, SHCMD("st ncmpcpp")},
+    {altkey, XK_h,   spawn, SHCMD("st htop")},
+    {altkey, XK_k,   spawn, SHCMD("st vim -R ~/.config/suckless/dwm/config.def.h")},
+    {altkey, XK_p,   spawn, SHCMD("librewolf --private-window --new-tab")},
+    {altkey, XK_n,   spawn, SHCMD("librewolf --private-window /home/ceaser/Desktop/")},
+
+//mostly inbuilt keybindings
+    {MODKEY, XK_Return, spawn, {.v = termcmd}},
+    {MODKEY, XK_p, spawn, {.v = dmenucmd}},
+    {MODKEY, XK_b, togglebar, {0}},
+    {MODKEY, XK_j, focusstackvis, {.i = +1}},
+    {MODKEY, XK_k, focusstackvis, {.i = -1}},
+    {MODKEY | ShiftMask, XK_j, focusstackhid, {.i = +1}},
+    {MODKEY | ShiftMask, XK_k, focusstackhid, {.i = -1}},
+    {MODKEY, XK_i, incnmaster, {.i = +1}},
+    {MODKEY | ShiftMask, XK_d, incnmaster, {.i = -1}},
+    {MODKEY, XK_h, setmfact, {.f = -0.05}},
+    {MODKEY, XK_l, setmfact, {.f = +0.05}},
+// switch between master and slave stack
+    {MODKEY | ShiftMask, XK_Return, zoom, {0}},
+    {MODKEY, XK_Tab, view, {0}},
+    {MODKEY, XK_q, killclient, {0}},
+    {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},
+    {MODKEY, XK_f, setlayout, {.v = &layouts[1]}},
+    {MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
+    {MODKEY, XK_r, setlayout, {.v = &layouts[3]}},
+    {MODKEY | ShiftMask, XK_r, setlayout, {.v = &layouts[4]}},
+    {MODKEY, XK_g, setlayout, {.v = &layouts[5]}},
+    {MODKEY, XK_u, setlayout, {.v = &layouts[6]}},
+    {MODKEY, XK_o, setlayout, {.v = &layouts[7]}},
+    {MODKEY, XK_space, setlayout, {0}},
+    {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
+    {MODKEY, XK_0, view, {.ui = ~0}},
+    {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
+    {MODKEY, XK_comma, focusmon, {.i = -1}},
+    {MODKEY, XK_period, focusmon, {.i = +1}},
+    {MODKEY | ShiftMask, XK_comma, tagmon, {.i = -1}},
+    {MODKEY | ShiftMask, XK_period, tagmon, {.i = +1}},
+    {MODKEY, XK_s, show, {0}},
+
+//hide and show tags
+    {MODKEY | ShiftMask, XK_s, showall, {0}},
+    {MODKEY | ShiftMask, XK_h, hide, {0}},
+//go to tag number
+    TAGKEYS(XK_1, 0) 
+    TAGKEYS(XK_2, 1) 
+    TAGKEYS(XK_3, 2) 
+    TAGKEYS(XK_4, 3)
+    TAGKEYS(XK_5, 4) 
+    TAGKEYS(XK_6, 5) 
+    TAGKEYS(XK_7, 6) 
+    TAGKEYS(XK_8, 7)
+    TAGKEYS(XK_9, 8)
+    {MODKEY | ShiftMask, XK_q, quit, {0}},
+};
+
+
+// to increase or decrease gap between windows
+modkey + - --> to decrease
+modkey + = --> to increase
+
+
