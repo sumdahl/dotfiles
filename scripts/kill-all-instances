@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Get the window class of the currently focused window
+program_class=$(xprop -id $(xdotool getwindowfocus) | awk -F '"' '/WM_CLASS/{print $4}')
+
+if [ -n "$program_class" ]; then
+    # Use the obtained window class to kill all instances
+    window_list=$(xdotool search --class "$program_class")
+
+    if [ -n "$window_list" ]; then
+        for window_id in $window_list; do
+            # Get the PID of the process associated with the window
+            pid=$(xdotool getwindowpid "$window_id")
+            
+            if [ -n "$pid" ]; then
+                # Kill the process
+                kill "$pid"
+            fi
+        done
+    fi
+fi
