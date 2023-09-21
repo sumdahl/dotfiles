@@ -1,0 +1,3 @@
+#!/bin/env sh
+#
+curl -s "wttr.in/kathmandu?format=1"| sed -E "s/^(.).*\+/\1/"
