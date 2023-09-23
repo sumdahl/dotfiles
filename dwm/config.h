@@ -124,8 +124,10 @@ static const Key keys[] = {
     {0, XF86XK_AudioNext, spawn, SHCMD("~/.local/bin/MediaControl --next")},
     {0, XF86XK_AudioStop, spawn, SHCMD("~/.local/bin/MediaControl --stop")},
 
-    // to use flame shot
-    {0, printsc, spawn, SHCMD("flameshot gui")}, // to take screenshot
+    // to take screenshot from flame shot
+
+    {0, printsc, spawn, SHCMD("flameshot gui")},
+    {MODKEY, printsc, spawn, SHCMD("flameshot full")},
     //
     {MODKEY | ShiftMask, XK_p, spawn, SHCMD("~/.local/bin/power_menu")},
     // to control brightness
@@ -149,8 +151,9 @@ static const Key keys[] = {
     {altkey | ShiftMask, XK_n, spawn, SHCMD("nitrogen")},
     {altkey | ShiftMask, XK_p, spawn, SHCMD("pavucontrol")},
     {altkey | ShiftMask, XK_h, spawn, SHCMD("st htop")},
-    //kill all instances
-    {MODKEY | ControlMask, XK_q, spawn, SHCMD("/home/sumdahl/.local/bin/kill-all-instances")},
+    // kill all instances
+    {MODKEY | ControlMask, XK_q, spawn,
+     SHCMD("/home/sumdahl/.local/bin/kill-all-instances")},
 
     // shortcut to view all present keybindings
     // {altkey, XK_k,   spawn, SHCMD("st vim -R
@@ -160,8 +163,9 @@ static const Key keys[] = {
      SHCMD("librewolf --private-window /home/ceaser/Desktop/")}, // used to view
                                                                  // pdfs
 
-    //alacritty theme Changer 
-    {altkey | ControlMask, XK_t, spawn, SHCMD("/home/sumdahl/.local/bin/alacritty-theme-selector")},
+    // alacritty theme Changer
+    {altkey | ControlMask, XK_t, spawn,
+     SHCMD("/home/sumdahl/.local/bin/alacritty-theme-selector")},
 
     // mostly inbuilt keybindings
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
