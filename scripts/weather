@@ -4,8 +4,8 @@
 API_KEY=$(cat api_key.txt)
 
 # Replace with your preferred city and country code
-CITY="Kathmandu"
-COUNTRY_CODE="NP"
+CITY=$(cat city.txt)
+COUNTRY_CODE=$(cat country_code.txt)
 
 # API endpoint for current weather data
 API_URL="http://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY_CODE}&appid=${API_KEY}&units=metric"
