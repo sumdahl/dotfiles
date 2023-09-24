@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# Replace with your own OpenWeather API key
+API_KEY="YOUR_OPENWEATHER_API_KEY"
+
+# Replace with your preferred city and country code
+CITY="YOUR_CITY"
+COUNTRY_CODE="YOUR_COUNTRY_CODE"
+
+# API endpoint for current weather data
+API_URL="http://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY_CODE}&appid=${API_KEY}&units=metric"
+
+# Function to fetch and display weather information
+get_weather() {
+    local response=$(curl -s "$API_URL")
+    
+    if [ -z "$response" ]; then
+        echo "Error: Failed to fetch weather data."
+        exit 1
+    fi
+
+    local city=$(echo "$response" | jq -r '.name')
+    local temperature=$(echo "$response" | jq -r '.main.temp')
+
+    # Use awk to round up the temperature value to the nearest integer
+    local rounded_temperature=$(echo "$temperature" | awk '{print int($1 + 0.5)}')
+
+    local description=$(echo "$response" | jq -r '.weather[0].description')
+
+    # Weather condition icons
+    local icon=""
+    case "$description" in
+        "clear sky")
+            icon="☀️"
+            ;;
+        "few clouds")
+            icon="🌤️"
+            ;;
+        "scattered clouds" | "broken clouds")
+            icon="🌥️"
+            ;;
+        "overcast clouds")
+            icon="☁️"
+            ;;
+        "light rain" | "moderate rain" | "heavy intensity rain")
+            icon="🌧️"
+            ;;
+        "thunderstorm")
+            icon="⛈️"
+            ;;
+        "snow" | "sleet")
+            icon="🌨️"
+            ;;
+        "mist" | "fog" | "haze")
+            icon="🌫️"
+            ;;
+        *)
+            icon="❓"
+            ;;
+    esac
+
+    echo "${rounded_temperature}°C ${icon}"
+}
+
+# Check if 'jq' (a JSON parsing tool) is installed
+if ! command -v jq > /dev/null; then
+    echo "Error: 'jq' is not installed. Please install it to parse JSON responses."
+    exit 1
+fi
+
+# Call the function to get weather information
+get_weather
