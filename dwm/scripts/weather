@@ -1,11 +1,12 @@
+
 #!/bin/bash
 
 # Replace with your own OpenWeather API key
-API_KEY="YOUR_OPENWEATHER_API_KEY"
+API_KEY="33f912b626658885d1db24cb8282118e"
 
 # Replace with your preferred city and country code
-CITY="YOUR_CITY"
-COUNTRY_CODE="YOUR_COUNTRY_CODE"
+CITY="Kathmandu"
+COUNTRY_CODE="NP"
 
 # API endpoint for current weather data
 API_URL="http://api.openweathermap.org/data/2.5/weather?q=${CITY},${COUNTRY_CODE}&appid=${API_KEY}&units=metric"
@@ -21,10 +22,6 @@ get_weather() {
 
     local city=$(echo "$response" | jq -r '.name')
     local temperature=$(echo "$response" | jq -r '.main.temp')
-
-    # Use awk to round up the temperature value to the nearest integer
-    local rounded_temperature=$(echo "$temperature" | awk '{print int($1 + 0.5)}')
-
     local description=$(echo "$response" | jq -r '.weather[0].description')
 
     # Weather condition icons
@@ -59,7 +56,7 @@ get_weather() {
             ;;
     esac
 
-    echo "${rounded_temperature}°C ${icon}"
+    echo "${temperature}°C ${icon}"
 }
 
 # Check if 'jq' (a JSON parsing tool) is installed

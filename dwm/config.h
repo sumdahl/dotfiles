@@ -158,14 +158,18 @@ static const Key keys[] = {
     // shortcut to view all present keybindings
     // {altkey, XK_k,   spawn, SHCMD("st vim -R
     // ~/.config/suckless/dwm/keymaps.md")},
-    {altkey, XK_p, spawn, SHCMD("librewolf --private-window --new-tab")},
-    {altkey, XK_n, spawn,
-     SHCMD("librewolf --private-window /home/ceaser/Desktop/")}, // used to view
-                                                                 // pdfs
+    // {altkey, XK_p, spawn, SHCMD("librewolf --private-window --new-tab")},
+    // {altkey, XK_n, spawn,
+    // SHCMD("librewolf --private-window /home/ceaser/Desktop/")}, // used to
+    // view pdfs
 
     // alacritty theme Changer
     {altkey | ControlMask, XK_t, spawn,
      SHCMD("/home/sumdahl/.local/bin/alacritty-theme-selector")},
+
+    // rofi-menu for selecting avaiable wifi
+    {altkey | ControlMask, XK_n, spawn,
+     SHCMD("/home/sumdahl/.local/bin/rofi-wifi-menu.sh")},
 
     // mostly inbuilt keybindings
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
