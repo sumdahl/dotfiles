@@ -38,7 +38,6 @@ static const char *colors[][3] = {
 
 static const char *tags[] = {"",  "",  "3", "", "󰙯",
                              "󰓇", " ", "8", "9"};
-
 static const Rule rules[] = {
     /* xprop(1):
      *	WM_CLASS(STRING) = instance, class
@@ -153,7 +152,7 @@ static const Key keys[] = {
     {altkey | ShiftMask, XK_h, spawn, SHCMD("st htop")},
     // kill all instances
     {MODKEY | ControlMask, XK_q, spawn,
-     SHCMD("/home/sumdahl/.local/bin/kill-all-instances")},
+     SHCMD("~/.local/bin/kill-all-instances")},
 
     // shortcut to view all present keybindings
     // {altkey, XK_k,   spawn, SHCMD("st vim -R
@@ -170,6 +169,12 @@ static const Key keys[] = {
     // rofi-menu for selecting avaiable wifi
     {altkey | ControlMask, XK_n, spawn,
      SHCMD("/home/sumdahl/.local/bin/rofi-wifi-menu.sh")},
+
+    //system hot keys suspned , power off and reboot and lock
+    {MODKEY | ControlMask | altkey, XK_s, spawn, SHCMD("systemctl suspend")},
+    {MODKEY | ControlMask | altkey, XK_l, spawn, SHCMD("betterlockscreen -l")},
+    {MODKEY | ControlMask | altkey, XK_p, spawn, SHCMD("systemctl poweroff")},
+    {MODKEY | ControlMask | altkey, XK_r, spawn, SHCMD("systemctl reboot")},
 
     // mostly inbuilt keybindings
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
