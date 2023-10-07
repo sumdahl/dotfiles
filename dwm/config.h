@@ -26,7 +26,7 @@ static const char col_gray4[] =
 // window is focused
 static const char col_active[] = "#83bae8";
 static const char col_cyan[] =
-    "#ABE9B3"; // border color when the window is focused
+    "#bd93f9"; // border color when the window is focused
                // this is the default color #83bae8
 
 static const char *colors[][3] = {
@@ -105,7 +105,7 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = {"dmenu_run", "-fn", dmenufont, "-nb",
                                  col_gray1,   "-nf", col_gray3, "-sb",
                                  col_cyan,    "-sf", col_gray4, NULL};
-static const char *termcmd[] = {"/usr/local/bin/st", NULL};
+static const char *termcmd[] = {"/usr/bin/alacritty", NULL};
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
@@ -144,12 +144,12 @@ static const Key keys[] = {
     {altkey, XK_q, spawn, SHCMD("qbittorrent")},
     {altkey, XK_g, spawn, SHCMD("thunderbird")},
     {altkey, XK_m, spawn, SHCMD("spotify")},
-    {altkey, XK_k, spawn, SHCMD("st ncmpcpp")},
-    {altkey | ShiftMask, XK_f, spawn, SHCMD("st ranger")},
+    {altkey, XK_k, spawn, SHCMD("alacritty -e ncmpcpp")},
+    {altkey | ShiftMask, XK_f, spawn, SHCMD("alacritty -e ranger")},
     {altkey | ShiftMask, XK_d, spawn, SHCMD("discord")},
     {altkey | ShiftMask, XK_n, spawn, SHCMD("nitrogen")},
     {altkey | ShiftMask, XK_p, spawn, SHCMD("pavucontrol")},
-    {altkey | ShiftMask, XK_h, spawn, SHCMD("st htop")},
+    {altkey | ShiftMask, XK_h, spawn, SHCMD("alacritty -e htop")},
     // kill all instances
     {MODKEY | ControlMask, XK_q, spawn,
      SHCMD("~/.local/bin/kill-all-instances")},
