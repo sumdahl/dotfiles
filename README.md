@@ -12,6 +12,7 @@ This repo contains dotfiles configs of
 - mpd
 - ncmpcpp
 - rofi 
+- neofetch
 - ranger
 - catppuccin themes
 - alacritty with themes
