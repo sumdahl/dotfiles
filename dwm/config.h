@@ -16,11 +16,10 @@ static const char dmenufont[] = "JetBrainsMono Nerd Font:size=11";
 static const char *fonts[] = {"JetBrainsMono Nerd Font:style:medium:size=11",
                               "JetBrainsMono Nerd Font:style:medium:size=11",
                               "Material Design Icons Desktop:size=9"};
-static const char col_gray1[] = "#222222"; // backgroud colour normally seen
+static const char col_gray1[] = "#000000"; // backgroud colour normally seen
 static const char col_gray2[] = "#E8B082"; // border for unfocused window
-static const char col_gray3[] = "#fff";    // font color ;normal
-static const char col_gray4[] =
-    "#000000"; // font color when focused on a window
+static const char col_gray3[] = "#f8f8f2";    // font color ;normal
+static const char col_gray4[] = "#000000"; // font color when focused on a window
 // static const char col_cyan[] = "#E8B082";  // border color when the window is
 // focused static const char col_cyan[] = "#83bae8";  // border color when the
 // window is focused
@@ -105,7 +104,7 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = {"dmenu_run", "-fn", dmenufont, "-nb",
                                  col_gray1,   "-nf", col_gray3, "-sb",
                                  col_cyan,    "-sf", col_gray4, NULL};
-static const char *termcmd[] = {"/usr/bin/alacritty", NULL};
+static const char *termcmd[] = {"/usr/local/bin/st", NULL};
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
@@ -144,12 +143,12 @@ static const Key keys[] = {
     {altkey, XK_q, spawn, SHCMD("qbittorrent")},
     {altkey, XK_g, spawn, SHCMD("thunderbird")},
     {altkey, XK_m, spawn, SHCMD("spotify")},
-    {altkey, XK_k, spawn, SHCMD("alacritty -e ncmpcpp")},
-    {altkey | ShiftMask, XK_f, spawn, SHCMD("alacritty -e ranger")},
+    {altkey, XK_k, spawn, SHCMD("st ncmpcpp")},
+    {altkey | ShiftMask, XK_f, spawn, SHCMD("st ranger")},
     {altkey | ShiftMask, XK_d, spawn, SHCMD("discord")},
     {altkey | ShiftMask, XK_n, spawn, SHCMD("nitrogen")},
     {altkey | ShiftMask, XK_p, spawn, SHCMD("pavucontrol")},
-    {altkey | ShiftMask, XK_h, spawn, SHCMD("alacritty -e htop")},
+    {altkey | ShiftMask, XK_h, spawn, SHCMD("st htop")},
     // kill all instances
     {MODKEY | ControlMask, XK_q, spawn,
      SHCMD("~/.local/bin/kill-all-instances")},
