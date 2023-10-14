@@ -65,7 +65,7 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function           format          argument */
-	{ netspeed_rx,    "%s B/s",        "wlan0" },
+	{ netspeed_rx,    "%s B/s",        "wlp3s0" },
 	{separator, " | " , NULL},
 	// { kernel_release, "%s",        NULL},
 	{ run_command,    " %s",       "pamixer --get-volume" },
@@ -75,8 +75,8 @@ static const struct arg args[] = {
 	{ battery_state,  "  %s:",       "BAT0"},
 	{ battery_perc,   "%s%%",         "BAT0"},
 	{separator, " | " , NULL},
-	{ disk_perc,  "DISK 󱛟 %s%%",       "/"},
-	{separator, " | " , NULL},
+	//{ disk_perc,  "DISK 󱛟 %s%%",       "/"},
+	//{separator, " | " , NULL},
 	{ cpu_perc,       "CPU  %s%%", NULL },
 	{separator, " | " , NULL},
 	{ ram_perc,       "RAM 󰍛 %s%%", NULL},
