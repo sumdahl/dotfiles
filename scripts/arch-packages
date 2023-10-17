@@ -1,19 +1,39 @@
 #!/bin/bash
-
 echo "Installing essential arch packages"
 
-sudo pacman -S git htop neofetch mpd ncmpcpp rofi picom playerctl flameshot thunar telegram-desktop alacritty discord nitrogen lxappearance gvfs-mtp   
+sudo pacman -S git htop neofetch mpd ncmpcpp rofi picom playerctl flameshot thunar telegram-desktop alacritty discord nitrogen lxappearance gvfs-mtp lazygit timeshift ranger lf
 
 sleep 3
 
-echo "Building arch linux paru"
+echo "Building paru from source..."
 
 cd ~
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 
-echo "Now installing AUR packages"
+echo "Now installing AUR packages after 3 seconds..."
 sleep 3
 
 paru -S bashmount betterlockscreen spotify brillo envycontrol librewolf-bin nordic-darker-theme spotify trash xfce-polkit 
+
+echo "Installing Rust lang"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
+
+cd ~;mkdir .git_builds;cd .git_builds;git clone https://github.com/sumdahl/dotfiles
+
+cd dotfiles
+
+cp -r alacritty/ mpd/ picom/ dunst/ ncmpcpp/ rofi/ st/ dwm/ neofetch/ranger/ zathura/
+
+git clone https://github.com/abba23/spotify-adblock.git
+cd spotify-adblock
+make
+
+sudo make install
+
+cd /usr/share/applications
+sudo cp ~/.git_builds/dotfiles/spotify-adblock/spotify-adblock.desktop /usr/share/applications/
+
+
