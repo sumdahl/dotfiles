@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "Installing essential arch packages"
+
+sudo pacman -S git htop neofetch mpd ncmpcpp rofi picom playerctl flameshot thunar telegram-desktop alacritty discord nitrogen lxappearance gvfs-mtp   
+
+sleep 3
+
+echo "Building arch linux paru"
+
+cd ~
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+
+echo "Now installing AUR packages"
+sleep 3
+
+paru -S bashmount betterlockscreen spotify brillo envycontrol librewolf-bin nordic-darker-theme spotify trash xfce-polkit 
