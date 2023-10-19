@@ -11,8 +11,6 @@ static const int vertpad = 0;           /* vertical padding of bar */
 static const int sidepad = 0;           /* horizontal padding of bar */
 // static const char *fonts[]          = { "Iosevka:size=16" };
 static const char dmenufont[] = "JetBrainsMono Nerd Font:size=11";
-// static const char *fonts[] = { "JetBrainsMono Nerd Font:style:medium:size=10"
-// };
 static const char *fonts[] = {"JetBrainsMono Nerd Font:style:medium:size=11",
                               "JetBrainsMono Nerd Font:style:medium:size=11",
                               "Material Design Icons Desktop:size=9"};
@@ -25,7 +23,7 @@ static const char col_gray4[] = "#000000"; // font color when focused on a windo
 // window is focused
 static const char col_active[] = "#83bae8";
 static const char col_cyan[] =
-    "#bd93f9"; // border color when the window is focused
+    "#56D1BA"; // border color when the window is focused
                // this is the default color #83bae8
 
 static const char *colors[][3] = {
@@ -35,7 +33,7 @@ static const char *colors[][3] = {
     [SchemeHid] = {col_cyan, col_gray1, col_cyan},
 };
 
-static const char *tags[] = {"",  "",  "3", "", "󰙯",
+static const char *tags[] = {"",  "",  "3", "", "󰙯",
                              "󰓇", " ", "8", "9"};
 static const Rule rules[] = {
     /* xprop(1):
@@ -45,7 +43,7 @@ static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
     // {"Gimp",      NULL,       NULL,           0,        0,           -1},
     // {"neovide",   NULL,       NULL,       1 <<2  ,      0,           -1 },
-    {"firefox", NULL, NULL, 1 << 1, 0, -1},
+    {"thorium-browser", NULL, NULL, 1 << 1, 0, -1},
     // {"Signal",       NULL,       NULL,       1 <<3  ,      0,           -1 },
     {"discord", NULL, NULL, 1 << 4, 0, -1},
     {"thunderbird", NULL, NULL, 1 << 6, 0, -1},
@@ -104,7 +102,7 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = {"dmenu_run", "-fn", dmenufont, "-nb",
                                  col_gray1,   "-nf", col_gray3, "-sb",
                                  col_cyan,    "-sf", col_gray4, NULL};
-static const char *termcmd[] = {"/usr/local/bin/st", NULL};
+static const char *termcmd[] = {"/usr/bin/alacritty", NULL};
 
 static const Key keys[] = {
     /* modifier                     key        function        argument */
@@ -137,18 +135,18 @@ static const Key keys[] = {
 
     // custom keybindings to Launch applications/programs
     {MODKEY, XK_n, spawn, SHCMD("thunar")},
-    {altkey, XK_f, spawn, SHCMD("google-chrome-stable")},
-    {altkey, XK_b, spawn, SHCMD("firefox")},
+    {altkey, XK_f, spawn, SHCMD("librewolf")},
+    {altkey, XK_b, spawn, SHCMD("thorium-browser")},
     {altkey, XK_t, spawn, SHCMD("telegram-desktop")},
     {altkey, XK_q, spawn, SHCMD("qbittorrent")},
     {altkey, XK_g, spawn, SHCMD("thunderbird")},
     {altkey, XK_m, spawn, SHCMD("spotify")},
-    {altkey, XK_k, spawn, SHCMD("st ncmpcpp")},
-    {altkey | ShiftMask, XK_f, spawn, SHCMD("st ranger")},
+    {altkey, XK_k, spawn, SHCMD("alacritty -e ncmpcpp")},
+    {altkey | ShiftMask, XK_f, spawn, SHCMD("alacritty -e ranger")},
     {altkey | ShiftMask, XK_d, spawn, SHCMD("discord")},
     {altkey | ShiftMask, XK_n, spawn, SHCMD("nitrogen")},
     {altkey | ShiftMask, XK_p, spawn, SHCMD("pavucontrol")},
-    {altkey | ShiftMask, XK_h, spawn, SHCMD("st htop")},
+    {altkey | ShiftMask, XK_h, spawn, SHCMD("alacritty -e htop")},
     // kill all instances
     {MODKEY | ControlMask, XK_q, spawn,
      SHCMD("~/.local/bin/kill-all-instances")},
@@ -156,7 +154,7 @@ static const Key keys[] = {
     // shortcut to view all present keybindings
     // {altkey, XK_k,   spawn, SHCMD("st vim -R
     // ~/.config/suckless/dwm/keymaps.md")},
-    // {altkey, XK_p, spawn, SHCMD("librewolf --private-window --new-tab")},
+    {altkey, XK_p, spawn, SHCMD("thorium-browser --incognito")},
     // {altkey, XK_n, spawn,
     // SHCMD("librewolf --private-window /home/ceaser/Desktop/")}, // used to
     // view pdfs
