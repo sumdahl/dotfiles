@@ -23,9 +23,9 @@ static const char col_gray4[] = "#000000"; // font color when focused on a windo
 // window is focused
 static const char col_active[] = "#83bae8";
 static const char col_cyan[] =
-    "#56D1BA"; // border color when the window is focused
+    "#56C1A1"; // border color when the window is focused
                // this is the default color #83bae8
-
+//"#56C1A1"
 static const char *colors[][3] = {
     /*               fg         bg         border   */
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
