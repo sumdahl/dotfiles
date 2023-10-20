@@ -12,7 +12,10 @@ killall xcape 2>/dev/null ; xcape -e 'Caps_Lock=Escape'
 exec flameshot &
 
 #locker
-locker &
+#locker &
+
+#wallpaper utility feh
+~/.fehbg &
 
 #status bars for dwm
 exec slstatus &
@@ -27,12 +30,12 @@ fi
 
 #for wallpaper
 # nitrogen --restore --set-scaled &
-if [[ $(pidof nitrogen) ]]; then
-  echo "nitrogen is running"
-else
-  echo "starting"
-  exec nitrogen --restore --set-scaled &
-fi
+#if [[ $(pidof nitrogen) ]]; then
+#  echo "nitrogen is running"
+#else
+#  echo "starting"
+#  exec nitrogen --restore --set-scaled &
+#fi
 
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.config/mpd/pid ] && mpd
