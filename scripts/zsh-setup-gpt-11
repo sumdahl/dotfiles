@@ -12,14 +12,11 @@ add_plugin() {
         plugins_line=$(grep -o "plugins=([^)]*" "$zshrc_path" | sed -n '2p')
         if [[ -n "$plugins_line" ]]; then
             if ! echo "$plugins_line" | grep -q "$plugin_name"; then
-                sed -i "s/$plugins_line/plugins=($plugins_line $plugin_name)/" "$zshrc_path"
+                sed -i "s/$plugins_line/$plugin_name)/" "$zshrc_path"
                 echo "Added '$plugin_name' to the plugins in $zshrc_path"
             else
                 echo "'$plugin_name' is already in the plugins list in $zshrc_path"
             fi
-        else
-            echo "No second 'plugins' line found in $zshrc_path. Adding one."
-            echo "plugins=($plugin_name)" >> "$zshrc_path"
         fi
     else
         echo "Warning: $zshrc_path not found."
