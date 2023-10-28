@@ -23,9 +23,9 @@ static const char col_gray4[] = "#000000"; // font color when focused on a windo
 // window is focused
 static const char col_active[] = "#83bae8";
 static const char col_cyan[] =
-    "#56D1BA"; // border color when the window is focused
+    "#56C1A1"; // border color when the window is focused
                // this is the default color #83bae8
-
+//"#56C1A1"
 static const char *colors[][3] = {
     /*               fg         bg         border   */
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
@@ -140,7 +140,7 @@ static const Key keys[] = {
     {altkey, XK_t, spawn, SHCMD("telegram-desktop")},
     {altkey, XK_q, spawn, SHCMD("qbittorrent")},
     {altkey, XK_g, spawn, SHCMD("thunderbird")},
-    {altkey, XK_m, spawn, SHCMD("spotify")},
+    {altkey, XK_m, spawn, SHCMD("env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U")},
     {altkey, XK_k, spawn, SHCMD("alacritty -e ncmpcpp")},
     {altkey | ShiftMask, XK_f, spawn, SHCMD("alacritty -e ranger")},
     {altkey | ShiftMask, XK_d, spawn, SHCMD("discord")},
