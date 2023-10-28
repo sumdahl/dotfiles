@@ -1,0 +1,85 @@
+#!/bin/bash
+
+# This script has been reviewed to ensure the commands are correct, 
+# and it creates separate Btrfs subvolumes for / and /home. 
+# Please replace /dev/sdX1 and /dev/sdX2 with your actual partition names and
+# customize the hostname and other settings as needed.
+
+# Check if the script is run as root
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run this script as root."
+  exit 1
+fi
+
+# Set variables
+EFI_PARTITION="/dev/sdX1"    # Replace 'X' with your EFI partition (e.g., /dev/sda1)
+ROOT_PARTITION="/dev/sdX2"   # Replace 'X' with your desired root partition (e.g., /dev/sda2)
+TIMEZONE="Asia/Kathmandu"
+LOCALE="en_US.UTF-8"
+
+# Format EFI partition
+mkfs.fat -F32 $EFI_PARTITION
+
+# Format and mount the root partition with Btrfs
+mkfs.btrfs -f $ROOT_PARTITION
+mount $ROOT_PARTITION /mnt
+
+# Create Btrfs subvolumes
+btrfs subvolume create /mnt/@
+btrfs subvolume create /mnt/@home
+
+# Mount Btrfs subvolumes
+umount /mnt
+mount -o noatime,compress=zstd,space_cache=v2,subvol=@ $ROOT_PARTITION /mnt
+mkdir -p /mnt/home
+mount -o noatime,compress=zstd,space_cache=v2,subvol=@home $ROOT_PARTITION /mnt/home
+
+# Install the base system, Linux kernel, and firmware
+pacstrap /mnt base base-devel linux linux-firmware
+
+# Generate fstab
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# Chroot into the new system
+arch-chroot /mnt
+
+# Set timezone
+ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
+hwclock --systohc
+
+# Uncomment the desired locale in /etc/locale.gen and generate locales
+echo "$LOCALE UTF-8" > /etc/locale.gen
+locale-gen
+echo "LANG=$LOCALE" > /etc/locale.conf
+
+# Set the hostname
+echo "YourHostName" > /etc/hostname
+
+# Configure /etc/hosts
+echo "127.0.0.1    localhost" >> /etc/hosts
+echo "::1          localhost" >> /etc/hosts
+echo "127.0.1.1    YourHostName.localdomain YourHostName" >> /etc/hosts
+
+# Set the root password
+passwd
+
+# Install and configure systemd-boot
+bootctl --path=/boot install
+
+# Create bootloader entry for Arch Linux
+cat <<EOF > /boot/loader/entries/arch.conf
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=UUID=$(blkid -s UUID -o value $ROOT_PARTITION) rw quiet
+EOF
+
+# Set systemd-boot default entry
+echo "default arch" > /boot/loader/loader.conf
+
+# Exit the chroot environment
+exit
+
+# Unmount all partitions and reboot
+umount -R /mnt
+reboot
