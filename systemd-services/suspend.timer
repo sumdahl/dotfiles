@@ -1,0 +1,9 @@
+[Unit]
+Description=Trigger suspend after idle
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=20min
+
+[Install]
+WantedBy=timers.target
