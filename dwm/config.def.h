@@ -10,9 +10,9 @@ static const int topbar = 1;            /* 0 means bottom bar */
 static const int vertpad = 0;           /* vertical padding of bar */
 static const int sidepad = 0;           /* horizontal padding of bar */
 // static const char *fonts[]          = { "Iosevka:size=16" };
-static const char dmenufont[] = "JetBrainsMono Nerd Font:size=11";
-static const char *fonts[] = {"JetBrainsMono Nerd Font:style:medium:size=11",
-                              "JetBrainsMono Nerd Font:style:medium:size=11",
+static const char dmenufont[] = "JetBrainsMono NF:size=11";
+static const char *fonts[] = {"JetBrainsMono NF:style:medium:size=11",
+                              "JetBrainsMono NF:style:medium:size=11",
                               "Material Design Icons Desktop:size=9"};
 static const char col_gray1[] = "#000000"; // backgroud colour normally seen
 static const char col_gray2[] = "#E8B082"; // border for unfocused window
