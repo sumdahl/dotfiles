@@ -1,69 +1,74 @@
-# WARNING!!!
-This dwm is configured according to my liking most of the keybindings maynot work for you.
-Firstly, check config.def.h to ensure you have everything written inside `SCHMD` function. 
-I also have custom scripts for dunst(for notification).
-
-# dwm - dynamic window manager
-
-dwm is an extremely fast, small, and dynamic window manager for X. These are the
-patches that I have apllied to this dwm:
-
-   - spiral 
-   - dwindle 
-   - horizgrid 
-   - centeredmaster 
-   - centeredfloatingmaster
-   - hide_vacant_tags - only shows non-vacant tags on bar
-   - hide_and_restore_hidden_stacks - hide and restore windows
-   - fullgapps - enables you to resize gapps between windows
+dwm - dynamic window manager
+============================
+dwm is an extremely fast, small, and dynamic window manager for X.
 
 
-## Requirements
-
+Requirements
+------------
 In order to build dwm you need the Xlib header files.
 
-## Installation
 
-Edit config.mk to match your local setup (dwm is installed into the /usr/local
-namespace by default).
+Installation
+------------
+Edit config.mk to match your local setup (dwm is installed into
+the /usr/local namespace by default).
 
-Afterwards enter the following command to build and install dwm (if necessary as
-root):
+Afterwards enter the following command to build and install dwm (if
+necessary as root):
 
     make clean install
-    
-
-## Running dwm
-
-Add the following line to your .xinitrc to start dwm using startx [without killing all applications]:
 
 
-    while type dwm >/dev/null; do dwm && continue || break; done
+Running dwm
+-----------
+Add the following line to your .xinitrc to start dwm using startx:
 
-In order to connect dwm to a specific display, make sure that the DISPLAY
-environment variable is set correctly, e.g.:
+
+    while type dwm >/dev/null; do dwm && continue || break; done 
+
+(_This won't kill apps while restarting dwm_)
+
+In order to connect dwm to a specific display, make sure that
+the DISPLAY environment variable is set correctly, e.g.:
 
     DISPLAY=foo.bar:1 exec dwm
 
 (This will start dwm on display :1 of the host foo.bar.)
 
-I used slstatus to get statusline as shown in the screenshots below:
+In order to display status info in the bar, you can do something
+like this in your .xinitrc:
 
-## Configuration
+    while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
+    do
+    	sleep 1
+    done &
+    exec dwm
 
-The configuration of dwm is done by creating a custom config.h and (re)compiling
-the source code.[below shown screen shots are old and are needed to be updated]
-gscreenshot_2023-03-24-162524.png
-![Screenshot_2022-10-28_13-49-14](https://user-images.githubusercontent.com/93041325/198539809-2f1c76fc-6787-4f14-b555-fbf6405fbb07.png)
+or
 
-![Screenshot_2022-10-28_13-50-30](https://user-images.githubusercontent.com/93041325/198539844-be45a490-d7bc-41ab-9825-9c1d558fa204.png)
+try something like [slstatus](https://tools.suckless.org/slstatus/). 
 
-![Screenshot_2022-10-28_13-50-48](https://user-images.githubusercontent.com/93041325/198539863-7ab4b233-7c61-4a78-be9a-c6407e36f873.png)
-![screenshot1](./screenshots/gscreenshot_2023-03-24-162104.png)
-![screenshot1](./screenshots/gscreenshot_2023-03-24-162328.png)
-![screenshot1](./screenshots/gscreenshot_2023-03-24-162524.png)
-![screenshot1](./screenshots/gscreenshot_2023-03-24-162606.png)
+Configuration
+-------------
+The configuration of dwm is done by creating a custom config.h
+and (re)compiling the source code.
 
-### Scripts?? and other dots?
 
-Look at my [dotfiles](https://github.com/razzat008/dotfiles) repo.
+Some Info
+------------
+- The modkey is the metakey.
+- This build uses scripts to control brightness checkout *config.h* and for *scripts* [here](https://github.com/razzat008/dotfiles).
+- *[st](https://st.suckless.org)* terminal is the default terminal.
+
+Patches Applied
+------------
+These are the patches that I have applied on this build of dwm.
+- systray: shows icon of the active daemons
+- awesomebar: enables hiding of different applications and switching between them
+- centeredmaster: just an layout which always puts master at the center
+- fibonacci: layout that is similar to the fibonacci pattern
+- preserveonrestart: attaches clients to the tags they were opened on while restarting dwm
+- pertag: changing layout on one tag doesn't affect other tags
+- fullgaps: gapps between windows
+- hide_vacant_tags: hides tags with no client/applications in them
+- autostart: to put stuff you'd put in .xinitrc
