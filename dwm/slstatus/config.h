@@ -85,4 +85,5 @@ static const struct arg args[] = {
 	// {separator, " | " , NULL},
 	//{ datetime,       "%s",           "%a %b %d %r " },
 	{ datetime,       "%s",           "%a %b-%d %I:%M %p " },
+  
 };

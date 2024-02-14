@@ -1,0 +1,25 @@
+import = [
+            "/home/sumdahl/.config/alacritty/fonts.toml", 
+            "/home/sumdahl/.config/alacritty/themes/github_dark.toml"
+        ]
+live_config_reload = true
+
+[cursor]
+blink_interval = 550
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[selection]
+save_to_clipboard = true
+
+[window]
+decorations = "none"
+dynamic_title = true
+opacity = 0.2
+
+[window.padding]
+x = 2
+y = 2
