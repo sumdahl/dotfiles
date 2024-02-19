@@ -19,7 +19,7 @@ makepkg -si
 
 echo -e "\n ------Mongo DB has been installed in you system------"
 
-systemctl start mongodb
+sudo systemctl start mongodb
 
 echo -e "\n ------Setup successful, start building projects------"
 
