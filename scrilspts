@@ -1,27 +1,42 @@
-#!/bin/bash env
+#!/bin/bash
 
-#A bash script to setup mongodb in Arch Linux or it's derivatives.
+# A bash script to setup MongoDB in Arch Linux or its derivatives.
 
-cd $HOME
-echo -e "\n ------Installing Mongo Shell------\n"
-git clone https:/aur.archlinux.org/mongosh-bin.git
+# Variables
+aur_url="https://aur.archlinux.org"
+mongosh_pkg="mongosh-bin.git"
+mongodb_pkg="mongodb-bin.git"
+
+# Function for error handling
+check_error() {
+    if [ $? -ne 0 ]; then
+        echo -e "\n ------Error occurred. Exiting script.------"
+        exit 1
+    fi
+}
+
+echo -e "\n ------Installing Mongosh------\n"
+cd "$HOME"
+git clone "$aur_url/$mongosh_pkg"
 cd mongosh-bin
 makepkg -si
+check_error
 
-echo -e "\n ------Mongosh has been installed in you system------"
-cd $HOME
+echo -e "\n ------Mongosh has been installed on your system------"
 
 sleep 1
-echo -e "\n ------Installing Mongo DB------\n"
-git clone https://aur.archlinux.org/mongosh-bin.git
-cd mongosh-bin
+
+echo -e "\n ------Installing MongoDB------\n"
+cd "$HOME"
+git clone "$aur_url/$mongodb_pkg"
+cd mongodb-bin
 makepkg -si
+check_error
 
-echo -e "\n ------Mongo DB has been installed in you system------"
+echo -e "\n ------MongoDB has been installed on your system------"
 
+# Start MongoDB service with sudo if necessary
 sudo systemctl start mongodb
+check_error
 
 echo -e "\n ------Setup successful, start building projects------"
-
-
-
