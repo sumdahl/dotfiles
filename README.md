@@ -1,6 +1,6 @@
 # DOTFILES
 
-This repo contains dotfiles configs of
+This repo contains dotfiles configs and useful scripts, functionalities and some fixes to my laptop.
 
 - qtile
 - dwm with fully patched
@@ -17,3 +17,4 @@ This repo contains dotfiles configs of
 - catppuccin themes
 - alacritty with themes
 - zathura(document viewer)
+
