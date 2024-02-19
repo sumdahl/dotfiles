@@ -1,0 +1,27 @@
+#!/bin/bash env
+
+#A bash script to setup mongodb in Arch Linux or it's derivatives.
+
+cd $HOME
+echo -e "\n ------Installing Mongo Shell------\n"
+git clone https::/aur.archlinux.org/mongosh-bin.git
+cd mongosh-bin
+makepkg -si
+
+echo -e "\n ------Mongosh has been installed in you system------"
+cd $HOME
+
+sleep 1
+echo -e "\n ------Installing Mongo DB------\n"
+git clone https:://aur.archlinux.org/mongosh-bin.git
+cd mongosh-bin
+makepkg -si
+
+echo -e "\n ------Mongo DB has been installed in you system------"
+
+systemctl start mongodb
+
+echo -e "\n ------Setup successful, start building projects------"
+
+
+
