@@ -14,6 +14,8 @@ exec flameshot &
 #locker
 #locker &
 
+#for st
+xrdb merge pathToXresourcesFile
 #wallpaper utility feh
 ~/.fehbg &
 
@@ -38,15 +40,15 @@ fi
 #fi
 
 # MPD daemon start (if no other user instance exists)
-[ ! -s ~/.config/mpd/pid ] && mpd
-if [[ "$(pidof mpd)" ]]; then
-  echo "mpd is running"
-else
-  echo "starting mpd daemon"
-  exec mpd &
-fi
+# [ ! -s ~/.config/mpd/pid ] && mpd
+# if [[ "$(pidof mpd)" ]]; then
+#   echo "mpd is running"
+# else
+#   echo "starting mpd daemon"
+#   exec mpd &
+# fi
 
 #to start kdeconnect daemon and indicator
-/usr/lib/kdeconnectd &
+# /usr/lib/kdeconnectd &
 # kdeconnect-indicator &
 

@@ -3,7 +3,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 4;        /* gaps between windows */
+static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
@@ -14,14 +14,14 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char dmenufont[] = "JetBrainsMono NF:size=11";
 static const char *fonts[] = {"JetBrainsMono NF:style:medium:size=11", "JetBrainsMono NF:style:medium:size=9", "Material Design Icons Desktop:size=9"};
-static const char col_gray1[] = "#222222"; // backgroud colour normally seen
-static const char col_gray2[] = "#E8B082"; // border for unfocused window
+static const char col_gray1[] = "#1e1e2e"; // backgroud colour normally seen
+static const char col_gray2[] = "#fab387"; // border for unfocused window
 static const char col_gray3[] = "#fff";    // font color ;normal
-static const char col_gray4[] = "#000000"; // font color when focused on a window
+static const char col_gray4[] = "#11111b"; // font color when focused on a window
 // static const char col_cyan[] = "#E8B082";  // border color when the window is focused
 // static const char col_cyan[] = "#83bae8";  // border color when the window is focused
 static const char col_active[] = "#83bae8";
-static const char col_cyan[] = "#ABE9B3";  // border color when the window is focused
+static const char col_cyan[] = "#b4befe";  // border color when the window is focused
                                            //this is the default color #83bae8
 
 static const char *colors[][3] = {
@@ -118,6 +118,7 @@ static const Key keys[] = {
 
     {0, printsc, spawn, SHCMD("flameshot gui")},
     {MODKEY, printsc, spawn, SHCMD("flameshot full")},
+    {MODKEY|ShiftMask, printsc, spawn, SHCMD("flameshot launcher")},
     //
     {MODKEY | ShiftMask, XK_p, spawn, SHCMD("~/.local/bin/power_menu")},
     // to control brightness
@@ -132,6 +133,7 @@ static const Key keys[] = {
     {altkey, XK_f, spawn, SHCMD("librewolf")},
     {altkey, XK_b, spawn, SHCMD("thorium-browser")},
     {altkey, XK_t, spawn, SHCMD("telegram-desktop")},
+    {altkey, XK_v, spawn, SHCMD("code")},
     {altkey, XK_q, spawn, SHCMD("qbittorrent")},
     {altkey, XK_g, spawn, SHCMD("thunderbird")},
     {altkey, XK_m, spawn, SHCMD("env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U")},
@@ -140,6 +142,7 @@ static const Key keys[] = {
     {altkey | ShiftMask, XK_d, spawn, SHCMD("discord")},
     {altkey | ShiftMask, XK_n, spawn, SHCMD("nitrogen")},
     {altkey | ShiftMask, XK_p, spawn, SHCMD("pavucontrol")},
+    {altkey | ShiftMask, XK_v, spawn, SHCMD("viber")},
     {altkey | ShiftMask, XK_h, spawn, SHCMD("alacritty -e htop")},
     // kill all instances
     {MODKEY | ControlMask, XK_q, spawn,

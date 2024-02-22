@@ -140,6 +140,7 @@ static const Key keys[] = {
     {altkey | ShiftMask, XK_d, spawn, SHCMD("discord")},
     {altkey | ShiftMask, XK_n, spawn, SHCMD("nitrogen")},
     {altkey | ShiftMask, XK_p, spawn, SHCMD("pavucontrol")},
+    {altkey | ShiftMask, XK_v, spawn, SHCMD("viber")},
     {altkey | ShiftMask, XK_h, spawn, SHCMD("alacritty -e htop")},
     // kill all instances
     {MODKEY | ControlMask, XK_q, spawn,
