@@ -8,7 +8,7 @@ window:
     y: 6
   decorations: none
 
-  opacity: 0.2
+  opacity: 0.9
   dynamic_title: true
 
   history: 10000
