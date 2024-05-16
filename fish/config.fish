@@ -10,7 +10,9 @@
 # First line removes the path; second line sets it.  Without the first line,
 # your path gets massive and fish becomes very slow.
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.bin  $HOME/.local/bin $HOME/Applications /var/lib/flatpak/exports/bin/ $fish_user_paths
+set -U fish_user_paths $HOME/.bin $HOME/.local/bin $HOME/Applications /var/lib/flatpak/exports/bin/ $fish_user_paths
+set -U fish_user_paths /usr/local/go/binexport /usr/local/go/bin
+set -U fish_user_paths $HOME/.flutter/bin
 
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
@@ -147,6 +149,34 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
+
+##my ALIASES
+
+alias sy76='system76-power'
+alias mand='compgen -c | fzf | xargs man'
+alias zj='zellij'
+alias tmd='tmux detach'
+alias tma='tmux attach'
+alias tls='tmux ls'
+alias aptup='sudo apt update && sudo apt full-upgrade'
+alias hehe='sudo apt autopurge'
+alias aircon='bluetoothctl connect 96:D4:08:25:39:8E'
+alias aircond='bluetoothctl disconnect 96:D4:08:25:39:8E'
+alias bm='bashmount'
+alias prof='system76-power profile'
+alias perf='system76-power profile performance'
+alias bala='system76-power profile balanced'
+alias batt='system76-power profile battery'
+alias bp='upower -d | grep percentage'
+alias bc='upower -d | grep -i capacity'
+alias fm='ranger'
+alias cls='clear'
+alias lg='lazygit'
+alias n='nvim'
+alias mgsh='systemctl start mongod'
+alias mgst='systemctl stop mongod'
+alias python='python3'
+
 # vim and emacs
 alias vim='nvim'
 alias emacs="emacsclient -c -a 'emacs'"
@@ -239,3 +269,10 @@ colorscript random
 starship init fish | source
 # SquareX Safe File Viewer
  # ✕
+
+# pnpm
+set -gx PNPM_HOME "/home/sumdahl/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
