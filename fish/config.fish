@@ -269,6 +269,7 @@ colorscript random
 starship init fish | source
 # SquareX Safe File Viewer
  # ✕
+zoxide init fish | source
 
 # pnpm
 set -gx PNPM_HOME "/home/sumdahl/.local/share/pnpm"
