@@ -8,6 +8,10 @@
     <property name="brightness-switch" type="int" value="0"/>
     <property name="lid-action-on-battery" type="uint" value="1"/>
     <property name="inactivity-sleep-mode-on-battery" type="uint" value="1"/>
-    <property name="inactivity-on-battery" type="uint" value="30"/>
+    <property name="inactivity-on-battery" type="uint" value="15"/>
+    <property name="critical-power-action" type="uint" value="3"/>
+    <property name="lid-action-on-ac" type="uint" value="1"/>
+    <property name="inactivity-on-ac" type="uint" value="31"/>
+    <property name="lock-screen-suspend-hibernate" type="bool" value="false"/>
   </property>
 </channel>

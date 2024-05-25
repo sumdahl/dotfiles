@@ -6,7 +6,7 @@
     <property name="borderless_maximize" type="bool" value="true"/>
     <property name="box_move" type="bool" value="false"/>
     <property name="box_resize" type="bool" value="false"/>
-    <property name="button_layout" type="string" value="OS|HMC"/>
+    <property name="button_layout" type="string" value="HMC|OS"/>
     <property name="button_offset" type="int" value="0"/>
     <property name="button_spacing" type="int" value="0"/>
     <property name="click_to_focus" type="bool" value="true"/>
@@ -53,9 +53,9 @@
     <property name="snap_to_border" type="bool" value="true"/>
     <property name="snap_to_windows" type="bool" value="false"/>
     <property name="snap_width" type="int" value="10"/>
-    <property name="theme" type="string" value="Matcha-pueril"/>
+    <property name="theme" type="string" value="Catppuccin-Mocha-B"/>
     <property name="title_alignment" type="string" value="center"/>
-    <property name="title_font" type="string" value="Noto Sans 10"/>
+    <property name="title_font" type="string" value="JetBrainsMono Nerd Font Medium 10"/>
     <property name="title_horizontal_offset" type="int" value="0"/>
     <property name="title_shadow_active" type="string" value="false"/>
     <property name="title_shadow_inactive" type="string" value="false"/>
@@ -65,7 +65,7 @@
     <property name="unredirect_overlays" type="bool" value="true"/>
     <property name="urgent_blink" type="bool" value="false"/>
     <property name="use_compositing" type="bool" value="true"/>
-    <property name="workspace_count" type="int" value="4"/>
+    <property name="workspace_count" type="int" value="6"/>
     <property name="wrap_cycle" type="bool" value="true"/>
     <property name="wrap_layout" type="bool" value="true"/>
     <property name="wrap_resistance" type="int" value="10"/>
@@ -81,6 +81,8 @@
       <value type="string" value="Workspace 7"/>
       <value type="string" value="Workspace 8"/>
       <value type="string" value="Workspace 9"/>
+      <value type="string" value="Workspace 10"/>
+      <value type="string" value="Workspace 11"/>
     </property>
     <property name="tile_on_move" type="bool" value="true"/>
     <property name="titleless_maximize" type="bool" value="false"/>

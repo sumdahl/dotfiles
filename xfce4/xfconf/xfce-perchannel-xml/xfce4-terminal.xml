@@ -2,7 +2,7 @@
 
 <channel name="xfce4-terminal" version="1.0">
   <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
-  <property name="background-darkness" type="double" value="1"/>
+  <property name="background-darkness" type="double" value="0.80000000000000004"/>
   <property name="misc-always-show-tabs" type="bool" value="false"/>
   <property name="misc-bell" type="bool" value="false"/>
   <property name="misc-borders-default" type="bool" value="true"/>
@@ -10,7 +10,7 @@
   <property name="misc-cursor-shape" type="string" value="TERMINAL_CURSOR_SHAPE_BLOCK"/>
   <property name="misc-default-geometry" type="string" value="80x24"/>
   <property name="misc-inherit-geometry" type="bool" value="false"/>
-  <property name="misc-menubar-default" type="bool" value="true"/>
+  <property name="misc-menubar-default" type="bool" value="false"/>
   <property name="misc-mouse-autohide" type="bool" value="false"/>
   <property name="misc-toolbar-default" type="bool" value="false"/>
   <property name="misc-confirm-close" type="bool" value="true"/>
@@ -21,7 +21,7 @@
   <property name="misc-highlight-urls" type="bool" value="true"/>
   <property name="scrolling-lines" type="uint" value="999999"/>
   <property name="scrolling-on-output" type="bool" value="false"/>
-  <property name="dropdown-width" type="uint" value="60"/>
+  <property name="dropdown-width" type="uint" value="50"/>
   <property name="dropdown-always-show-tabs" type="bool" value="false"/>
   <property name="dropdown-show-borders" type="bool" value="false"/>
   <property name="dropdown-position" type="uint" value="50"/>
@@ -42,5 +42,7 @@
   <property name="tab-activity-color" type="string" value="#fab387"/>
   <property name="dropdown-animation-time" type="uint" value="0"/>
   <property name="misc-show-unsafe-paste-dialog" type="bool" value="false"/>
-  <property name="font-name" type="string" value="SauceCodePro Nerd Font Medium 12"/>
+  <property name="font-name" type="string" value="JetBrainsMono Nerd Font Medium 12"/>
+  <property name="dropdown-height" type="uint" value="40"/>
+  <property name="dropdown-opacity" type="uint" value="70"/>
 </channel>
