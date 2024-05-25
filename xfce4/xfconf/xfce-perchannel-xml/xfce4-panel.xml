@@ -58,7 +58,13 @@
         <value type="string" value="-shutdown"/>
       </property>
     </property>
-    <property name="plugin-4" type="string" value="pager"/>
+    <property name="plugin-4" type="string" value="pager">
+      <property name="rows" type="uint" value="1"/>
+      <property name="miniature-view" type="bool" value="false"/>
+      <property name="wrap-workspaces" type="bool" value="false"/>
+      <property name="numbering" type="bool" value="false"/>
+      <property name="workspace-scrolling" type="bool" value="true"/>
+    </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
         <value type="string" value="pnmixer"/>
@@ -86,6 +92,7 @@
         <value type="string" value="clipman"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="chrome_status_icon_1"/>
         <value type="string" value="Free Download Manager"/>
         <value type="string" value="TelegramDesktop"/>
         <value type="string" value="ViberPC"/>
@@ -122,16 +129,16 @@
         <value type="string" value="xfce4-mail-reader.desktop"/>
       </property>
       <property name="recent" type="array">
+        <value type="string" value="xfce-workspaces-settings.desktop"/>
+        <value type="string" value="org.telegram.desktop.desktop"/>
+        <value type="string" value="discord.desktop"/>
+        <value type="string" value="viber.desktop"/>
+        <value type="string" value="qv4l2.desktop"/>
+        <value type="string" value="qvidcap.desktop"/>
         <value type="string" value="xfce-settings-manager.desktop"/>
         <value type="string" value="xfce-session-settings.desktop"/>
         <value type="string" value="xfce4-session-logout.desktop"/>
         <value type="string" value="xfce-ui-settings.desktop"/>
-        <value type="string" value="lightdm-gtk-greeter-settings.desktop"/>
-        <value type="string" value="xfce-wm-settings.desktop"/>
-        <value type="string" value="xfce-keyboard-settings.desktop"/>
-        <value type="string" value="nvim.desktop"/>
-        <value type="string" value="timeshift-gtk.desktop"/>
-        <value type="string" value="xfce4-terminal-emulator.desktop"/>
       </property>
       <property name="profile-shape" type="int" value="0"/>
       <property name="show-button-icon" type="bool" value="true"/>
@@ -139,8 +146,11 @@
     </property>
     <property name="plugin-5" type="string" value="clock">
       <property name="mode" type="uint" value="2"/>
-      <property name="digital-date-font" type="string" value="JetBrainsMono Nerd Font Propo Semi-Bold 10"/>
-      <property name="digital-time-font" type="string" value="JetBrainsMono Nerd Font Propo Semi-Bold 10"/>
+      <property name="digital-date-font" type="string" value="JetBrainsMono Nerd Font Bold 10"/>
+      <property name="digital-time-font" type="string" value="JetBrainsMono Nerd Font Bold 10"/>
+      <property name="digital-time-format" type="string" value="%T"/>
+      <property name="digital-date-format" type="string" value="%d/%m/%Y"/>
+      <property name="timezone" type="string" value="Asia/Kathmandu"/>
     </property>
     <property name="plugin-1" type="string" value="showdesktop"/>
     <property name="plugin-12" type="string" value="launcher">
