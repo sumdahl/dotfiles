@@ -49,8 +49,6 @@
       <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -wd 1"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -r"/>
       <property name="&lt;Alt&gt;F1" type="string" value="xfce4-popup-whiskermenu"/>
-      <property name="F1" type="string" value="xfce4-terminal --drop-down"/>
-      <property name="&lt;Super&gt;t" type="string" value="xfce4-terminal"/>
       <property name="&lt;Super&gt;e" type="string" value="exo-open --launch FileManager"/>
       <property name="Print" type="string" value="flameshot gui"/>
       <property name="&lt;Alt&gt;b" type="string" value="thorium-browser"/>
@@ -61,6 +59,9 @@
       <property name="&lt;Super&gt;Escape" type="string" value="xflock4"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;Escape" type="string" value="xfce4-taskmanager"/>
       <property name="&lt;Alt&gt;c" type="string" value="galculator"/>
+      <property name="F1" type="string" value="xfce4-terminal --drop-down"/>
+      <property name="&lt;Super&gt;Return" type="string" value="alacritty"/>
+      <property name="&lt;Alt&gt;m" type="string" value="env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

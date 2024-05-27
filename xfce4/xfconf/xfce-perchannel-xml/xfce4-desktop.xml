@@ -13,7 +13,7 @@
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="1"/>
           <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/usr/share/backgrounds/catppuccin/wp11912555-catppuccin-wallpapers.png"/>
+          <property name="last-image" type="string" value="/usr/share/backgrounds/catppuccin/wp11912466-catppuccin-wallpapers.png"/>
           <property name="rgba1" type="array">
             <value type="double" value="0.60392156862745094"/>
             <value type="double" value="0.59999999999999998"/>
@@ -22,7 +22,7 @@
           </property>
           <property name="backdrop-cycle-enable" type="bool" value="true"/>
           <property name="backdrop-cycle-random-order" type="bool" value="true"/>
-          <property name="backdrop-cycle-timer" type="uint" value="30"/>
+          <property name="backdrop-cycle-timer" type="uint" value="25"/>
           <property name="backdrop-cycle-period" type="int" value="1"/>
         </property>
         <property name="workspace1" type="empty">
@@ -92,7 +92,7 @@
     <property name="show-hidden-files" type="bool" value="false"/>
   </property>
   <property name="last" type="empty">
-    <property name="window-width" type="int" value="619"/>
-    <property name="window-height" type="int" value="524"/>
+    <property name="window-width" type="int" value="732"/>
+    <property name="window-height" type="int" value="628"/>
   </property>
 </channel>

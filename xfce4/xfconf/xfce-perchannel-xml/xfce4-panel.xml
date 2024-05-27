@@ -3,25 +3,27 @@
 <channel name="xfce4-panel" version="1.0">
   <property name="panels" type="uint" value="1">
     <property name="panel-0" type="empty">
-      <property name="position" type="string" value="p=8;x=720;y=884"/>
+      <property name="position" type="string" value="p=6;x=960;y=16"/>
       <property name="length" type="double" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="8"/>
         <value type="int" value="3"/>
+        <value type="int" value="4"/>
         <value type="int" value="13"/>
         <value type="int" value="12"/>
         <value type="int" value="14"/>
-        <value type="int" value="15"/>
         <value type="int" value="16"/>
         <value type="int" value="18"/>
+        <value type="int" value="10"/>
+        <value type="int" value="11"/>
+        <value type="int" value="5"/>
         <value type="int" value="7"/>
         <value type="int" value="1"/>
-        <value type="int" value="4"/>
         <value type="int" value="6"/>
         <value type="int" value="9"/>
-        <value type="int" value="5"/>
         <value type="int" value="2"/>
+        <value type="int" value="15"/>
       </property>
       <property name="role" type="string" value="xfce4-panel-12965750720"/>
       <property name="length-adjust" type="bool" value="true"/>
@@ -79,6 +81,7 @@
       </property>
       <property name="show-frame" type="bool" value="false"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “strawhat_5” active: strawhat_5 (52%)"/>
         <value type="string" value="wi-fi network connection “strawhat_5” active: strawhat_5 (49%)"/>
         <value type="string" value="wi-fi network connection “strawhat_5” active: strawhat_5 (50%)"/>
         <value type="string" value="wi-fi network connection “strawhat_5” active: strawhat_5 (44%)"/>
@@ -129,16 +132,16 @@
         <value type="string" value="xfce4-mail-reader.desktop"/>
       </property>
       <property name="recent" type="array">
-        <value type="string" value="xfce-workspaces-settings.desktop"/>
-        <value type="string" value="org.telegram.desktop.desktop"/>
-        <value type="string" value="discord.desktop"/>
-        <value type="string" value="viber.desktop"/>
-        <value type="string" value="qv4l2.desktop"/>
-        <value type="string" value="qvidcap.desktop"/>
-        <value type="string" value="xfce-settings-manager.desktop"/>
-        <value type="string" value="xfce-session-settings.desktop"/>
-        <value type="string" value="xfce4-session-logout.desktop"/>
-        <value type="string" value="xfce-ui-settings.desktop"/>
+        <value type="string" value="xfce-keyboard-settings.desktop"/>
+        <value type="string" value="kvantummanager.desktop"/>
+        <value type="string" value="org.gnome.Geary.desktop"/>
+        <value type="string" value="xfce4-mime-settings.desktop"/>
+        <value type="string" value="manjaro-hello.desktop"/>
+        <value type="string" value="manjaro-settings-manager.desktop"/>
+        <value type="string" value="spotify-adblock.desktop"/>
+        <value type="string" value="spotify.desktop"/>
+        <value type="string" value="nvidia-settings.desktop"/>
+        <value type="string" value="xfce-wm-settings.desktop"/>
       </property>
       <property name="profile-shape" type="int" value="0"/>
       <property name="show-button-icon" type="bool" value="true"/>
@@ -148,7 +151,7 @@
       <property name="mode" type="uint" value="2"/>
       <property name="digital-date-font" type="string" value="JetBrainsMono Nerd Font Bold 10"/>
       <property name="digital-time-font" type="string" value="JetBrainsMono Nerd Font Bold 10"/>
-      <property name="digital-time-format" type="string" value="%T"/>
+      <property name="digital-time-format" type="string" value="%l:%M:%S %P"/>
       <property name="digital-date-format" type="string" value="%d/%m/%Y"/>
       <property name="timezone" type="string" value="Asia/Kathmandu"/>
     </property>
@@ -168,11 +171,6 @@
         <value type="string" value="17165160383.desktop"/>
       </property>
     </property>
-    <property name="plugin-15" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="17165160444.desktop"/>
-      </property>
-    </property>
     <property name="plugin-16" type="string" value="launcher">
       <property name="items" type="array">
         <value type="string" value="17165160515.desktop"/>
@@ -183,6 +181,16 @@
         <value type="string" value="17165160647.desktop"/>
       </property>
     </property>
+    <property name="plugin-10" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17167857571.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="true"/>
+    </property>
+    <property name="plugin-15" type="string" value="battery"/>
   </property>
   <property name="configver" type="int" value="2"/>
 </channel>

@@ -1,3 +1,5 @@
 FileManager=Thunar
 WebBrowser=custom-WebBrowser
+TerminalEmulator=alacritty
+MailReader=geary
 
