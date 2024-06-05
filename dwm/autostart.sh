@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xset r rate 300 40
+xset r rate 350 40
 picom --config $HOME/.config/picom/picom.conf --vsync &
 
 # map caps lock button as escape button
